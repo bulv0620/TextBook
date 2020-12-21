@@ -11,7 +11,7 @@ public class Method {
      */
     public static void chooseFile() {
         String fileName;
-        JFileChooser fc = new JFileChooser("C:\\Users\\Feng\\Desktop");
+        JFileChooser fc = new JFileChooser("E:\\");
         fc.setFileFilter(fileFilter);
         int val = fc.showOpenDialog(TextBook.jfm); // 文件打开对话框
         if (val == JFileChooser.APPROVE_OPTION) {
@@ -111,8 +111,8 @@ public class Method {
      */
     public static void saveOtherText() {
         String fileName = null;
-        JFileChooser fc = new JFileChooser("C:\\Users\\Feng\\Desktop");
-        fc.setSelectedFile(new File("C:\\Users\\Feng\\Desktop\\未命名.txt"));
+        JFileChooser fc = new JFileChooser("E:\\");
+        fc.setSelectedFile(new File("E:\\未命名.txt"));
         fc.setFileFilter(fileFilter);
         int val = fc.showSaveDialog(TextBook.jfm);
         if (val == JFileChooser.APPROVE_OPTION) {
