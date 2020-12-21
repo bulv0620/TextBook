@@ -174,12 +174,14 @@ public class Method {
      * 查找功能
      */
     public static void findWord() {
+        FindDialog.dialog.setVisible(true);
     }
 
     /**
      * 替换功能
      */
     public static void changeWord() {
+        ChangeDialog.dialog.setVisible(true);
     }
 
 }

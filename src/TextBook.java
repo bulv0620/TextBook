@@ -115,6 +115,8 @@ public class TextBook {
         jfm.setSize(500, 550);
         jfm.setLocationRelativeTo(null);
         jfm.setVisible(true);
+        new FindDialog();
+        new ChangeDialog();
     }
 
 }
