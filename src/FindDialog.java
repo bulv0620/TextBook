@@ -10,7 +10,7 @@ public class FindDialog {
     // 组件
     protected static JLabel statusLabel;
     protected static JTextField textField;
-    protected static JButton findButton;
+    protected static JButton prevButton;
     protected static JButton nextButton;
     protected static JButton exitButton;
 
@@ -19,18 +19,18 @@ public class FindDialog {
         dialog = new JDialog(TextBook.jfm, "查找");
         statusLabel = new JLabel("未进行查找");
         textField = new JTextField();
-        findButton = new JButton("查找");
+        prevButton = new JButton("上一个");
         nextButton = new JButton("下一个");
         exitButton = new JButton("退出");
         btnPanel = new JPanel(new GridLayout(1, 3));
 
         //对象部署
-        findButton.setBackground(Color.WHITE);
+        prevButton.setBackground(Color.WHITE);
         nextButton.setBackground(Color.WHITE);
         exitButton.setBackground(Color.WHITE);
 
         // 布局
-        btnPanel.add(findButton);
+        btnPanel.add(prevButton);
         btnPanel.add(nextButton);
         btnPanel.add(exitButton);
         dialog.getContentPane().add("North",statusLabel);
@@ -39,7 +39,7 @@ public class FindDialog {
 
         //事件
         DialogListener listener = new DialogListener();
-        findButton.addActionListener(listener);
+        prevButton.addActionListener(listener);
         nextButton.addActionListener(listener);
         exitButton.addActionListener(listener);
 

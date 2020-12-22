@@ -181,7 +181,7 @@ public class Method {
      * 替换功能
      */
     public static void changeWord() {
-        ChangeDialog.dialog.setVisible(true);
+        ReplaceDialog.dialog.setVisible(true);
     }
 
 }

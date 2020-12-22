@@ -5,19 +5,19 @@ public class DialogListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
-        if (source == FindDialog.findButton) {
-            DialogMethod.find();
+        if (source == FindDialog.prevButton) {
+            DialogMethod.prev();
         }
         if (source == FindDialog.nextButton) {
-            DialogMethod.next();
+            DialogMethod.next(FindDialog.textField.getText());
         }
         if (source == FindDialog.exitButton) {
             DialogMethod.findDialogExit();
         }
-        if (source == ChangeDialog.changeButton) {
+        if (source == ReplaceDialog.changeButton) {
             DialogMethod.change();
         }
-        if (source == ChangeDialog.exitButton) {
+        if (source == ReplaceDialog.exitButton) {
             DialogMethod.changeDialogExit();
         }
     }

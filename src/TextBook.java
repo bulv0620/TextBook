@@ -76,6 +76,7 @@ public class TextBook {
             Method.readFile(file);
             isLocated = true;
         }
+        text.setCaretPosition(0);
 
         // 菜单栏组装
         bar.add(menu1);
@@ -116,7 +117,7 @@ public class TextBook {
         jfm.setLocationRelativeTo(null);
         jfm.setVisible(true);
         new FindDialog();
-        new ChangeDialog();
+        new ReplaceDialog();
     }
 
 }

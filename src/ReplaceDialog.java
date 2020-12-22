@@ -2,7 +2,7 @@ import javax.swing.*;
 
 import java.awt.*;
 
-public class ChangeDialog {
+public class ReplaceDialog {
     // 定义域
     // 非模态 对话框
     protected static JDialog dialog;
@@ -15,7 +15,7 @@ public class ChangeDialog {
     protected static JButton changeButton;
     protected static JButton exitButton;
 
-    public ChangeDialog() {
+    public ReplaceDialog() {
         // 初始化域
         dialog = new JDialog(TextBook.jfm, "替换");
         statusLabel = new JLabel("未进行替换");
