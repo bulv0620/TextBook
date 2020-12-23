@@ -16,7 +16,6 @@ public class TextBook {
     protected static JMenuItem exit;
     protected static JMenu menu2;
     protected static JMenuItem findWord;
-    protected static JMenuItem changeWord;
     protected static JMenuItem style;
     // 定义文本域
     protected JScrollPane scrollText;
@@ -43,8 +42,7 @@ public class TextBook {
         saveOtherText = new JMenuItem("另存为");
         exit = new JMenuItem("退出");
         menu2 = new JMenu("功能");// 子菜单2
-        findWord = new JMenuItem("查找");
-        changeWord = new JMenuItem("替换");
+        findWord = new JMenuItem("查找&替换");
         style = new JMenuItem("文本样式");
 
         text = new JTextArea();// 文本域对象
@@ -63,12 +61,11 @@ public class TextBook {
         exit.setAccelerator(exitKS);
         KeyStroke findKS = KeyStroke.getKeyStroke("ctrl F");
         findWord.setAccelerator(findKS);
-        KeyStroke changeKS = KeyStroke.getKeyStroke("ctrl H");
-        changeWord.setAccelerator(changeKS);
         KeyStroke styleKS = KeyStroke.getKeyStroke("alt F");
         style.setAccelerator(styleKS);
 
         // 对象部署
+        bar.setBackground(Color.white);
         text.setLineWrap(true);
         text.setFont(new Font("微软雅黑", Font.PLAIN, FONTSIZE));
         if (file != null) {
@@ -90,7 +87,6 @@ public class TextBook {
         menu1.addSeparator();
         menu1.add(exit);
         menu2.add(findWord);
-        menu2.add(changeWord);
         menu2.addSeparator();
         menu2.add(style);
 
@@ -106,7 +102,6 @@ public class TextBook {
         saveOtherText.addActionListener(listener);
         exit.addActionListener(listener);
         findWord.addActionListener(listener);
-        changeWord.addActionListener(listener);
         style.addActionListener(listener);
         text.getDocument().addDocumentListener(listener);
         jfm.addWindowListener(listener);
@@ -116,8 +111,7 @@ public class TextBook {
         jfm.setSize(500, 550);
         jfm.setLocationRelativeTo(null);
         jfm.setVisible(true);
-        new FindDialog();
-        new ReplaceDialog();
+        new Dialog();
     }
 
 }

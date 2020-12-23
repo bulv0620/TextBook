@@ -45,9 +45,6 @@ public class Listener implements ActionListener, DocumentListener, WindowListene
         if (source == TextBook.findWord) {
             Method.findWord();
         }
-        if (source == TextBook.changeWord) {
-            Method.changeWord();
-        }
         if (source == TextBook.style) {
             Method.showStyleDialog();
         }

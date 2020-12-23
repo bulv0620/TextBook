@@ -1,32 +1,17 @@
-
 public class DialogMethod {
-
-	/**
-	 * 查找对话框关闭
-	 */
-	public static void findDialogExit() {
-		FindDialog.dialog.setVisible(false);
-	}
-
-	/**
-	 * 替换对话框关闭
-	 */
-	public static void changeDialogExit() {
-		ReplaceDialog.dialog.setVisible(false);
-	}
 
 	/**
 	 * 查找上一个方法
 	 */
 	public static void prev() {
-		String word = FindDialog.textField.getText();// 查找的词
+		String word = Dialog.findText.getText();// 查找的词
 		int focousPos = TextBook.text.getCaretPosition();// 当前光标焦点
 		String fullText = TextBook.text.getText();// 文档内所有内容
 		int startPos = 0;
 		int endPos = 0;
 		Boolean isfound = false;
 		if (word.equals("")) {
-			FindDialog.statusLabel.setText("失败(请输入内容)");
+			Dialog.statusLabel.setText("失败(请输入内容)");
 			return;
 		}
 		char lastLetter = word.charAt(word.length() - 1);
@@ -49,9 +34,9 @@ public class DialogMethod {
 		if (isfound) {
 			TextBook.text.setSelectionStart(startPos);
 			TextBook.text.setSelectionEnd(endPos);
-			FindDialog.statusLabel.setText("查找已执行");
+			Dialog.statusLabel.setText("查找已执行");
 		} else {
-			FindDialog.statusLabel.setText("失败(找不到内容)");
+			Dialog.statusLabel.setText("失败(找不到内容)");
 		}
 	}
 
@@ -66,7 +51,7 @@ public class DialogMethod {
 		int endPos = 0;
 		Boolean isfound = false;
 		if (word.equals("")) {
-			FindDialog.statusLabel.setText("失败(请输入内容)");
+			Dialog.statusLabel.setText("失败(请输入内容)");
 			return false;
 		}
 		char firstLetter = word.charAt(0);
@@ -89,30 +74,43 @@ public class DialogMethod {
 		if (isfound) {
 			TextBook.text.setSelectionStart(startPos);
 			TextBook.text.setSelectionEnd(endPos);
-			FindDialog.statusLabel.setText("查找已执行");
+			Dialog.statusLabel.setText("查找已执行");
 		} else {
-			FindDialog.statusLabel.setText("失败(找不到内容)");
+			Dialog.statusLabel.setText("失败(找不到内容)");
 		}
 		return isfound;
 	}
 
 	/**
-	 * 替换方法
+	 * 全部替换方法
 	 */
-	public static void change() {
+	public static void replaceAll() {
 		Boolean isReplaced = false;
-		String from = ReplaceDialog.textField.getText();
-		String to = ReplaceDialog.toTextField.getText();
+		String from = Dialog.findText.getText();
+		String to = Dialog.replaceText.getText();
 		TextBook.text.setCaretPosition(0);
 		while (next(from)) {
 			TextBook.text.replaceSelection(to);
 			isReplaced = true;
 		}
 		if (isReplaced)
-			ReplaceDialog.statusLabel.setText("替换成功");
+			Dialog.statusLabel.setText("替换成功");
 		else
-			ReplaceDialog.statusLabel.setText("失败(找不到内容)");
+			Dialog.statusLabel.setText("失败(找不到内容)");
 
+	}
+
+	/**
+	 * 替换当前方法
+	 */
+	public static void replace() {
+		String to = Dialog.replaceText.getText();
+		String text = TextBook.text.getSelectedText();
+		if (text != null) {
+			TextBook.text.replaceSelection(to);
+		}
+		else
+			Dialog.statusLabel.setText("失败(没有选择内容)");
 	}
 
 }

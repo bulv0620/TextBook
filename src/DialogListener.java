@@ -5,21 +5,20 @@ public class DialogListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
-        if (source == FindDialog.prevButton) {
+        if (source == Dialog.prevBtn) {
             DialogMethod.prev();
         }
-        if (source == FindDialog.nextButton) {
-            DialogMethod.next(FindDialog.textField.getText());
+        if (source == Dialog.nextBtn) {
+            DialogMethod.next(Dialog.findText.getText());
         }
-        if (source == FindDialog.exitButton) {
-            DialogMethod.findDialogExit();
+
+        if (source == Dialog.replaceBtn) {
+            DialogMethod.replace();
         }
-        if (source == ReplaceDialog.changeButton) {
-            DialogMethod.change();
+        if (source == Dialog.replaceAllBtn) {
+            DialogMethod.replaceAll();
         }
-        if (source == ReplaceDialog.exitButton) {
-            DialogMethod.changeDialogExit();
-        }
+
     }
 
 }
